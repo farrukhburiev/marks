@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        supportFragmentManager.beginTransaction().add(R.id.main_activity,LoginFragment())
+        supportFragmentManager.beginTransaction().add(R.id.main_activity,LoginFragment()).commit()
 
         setContentView(binding.root)
     }

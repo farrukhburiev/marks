@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.marks.R
+import com.example.marks.database.AppDatabase
 import com.example.marks.databinding.FragmentLoginBinding
+import com.example.marks.entity.Student
+import com.example.marks.entity.Teacher
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,11 +34,41 @@ class LoginFragment : Fragment() {
         }
     }
 
+    val appDatabase: AppDatabase by lazy {
+        AppDatabase.getInstance(requireContext())
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentLoginBinding.inflate(inflater,container,false)
+
+//        var state = false
+//        var teachers:List<Teacher> = appDatabase.getUserDao().getAllTeachers()
+//        var students:List<Student> = appDatabase.getUserDao().getAllStudents()
+        binding.verify.setOnClickListener {
+
+//            for (i in students){
+//                if (binding.nameOrg.text.toString().equals(i.name_student) && binding.passwordOrg.text.toString().equals(i.password_student)){
+//                    state  = true
+//                    parentFragmentManager.beginTransaction().replace(R.id.main_activity,StudentFragment.newInstance(binding.nameOrg.text.toString())).commit()
+//                }
+//            }
+
+//            for (i in teachers){
+//                if (binding.nameOrg.text.toString().equals(i.name_teacher) && binding.passwordOrg.text.toString().equals(i.password_teacher)){
+//                state  = true
+//                parentFragmentManager.beginTransaction().replace(R.id.main_activity,TeacherFragment.newInstance(binding.nameOrg.text.toString())).commit()
+//            }
+//        }
+
+
+        }
+
+        binding.registerText.setOnClickListener {
+            parentFragmentManager.beginTransaction().replace(R.id.main_activity,RegistrationFragment()).commit()
+        }
 
 
         return binding.root

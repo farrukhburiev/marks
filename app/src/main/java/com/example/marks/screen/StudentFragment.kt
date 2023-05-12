@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.marks.R
+import com.example.marks.databinding.FragmentStudentBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,8 +35,11 @@ class StudentFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_student, container, false)
+       val binding = FragmentStudentBinding.inflate(inflater,container,false)
+
+        binding.nameStudent.text = param1
+
+        return binding.root
     }
 
     companion object {
@@ -49,7 +53,7 @@ class StudentFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: String) =
             StudentFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
