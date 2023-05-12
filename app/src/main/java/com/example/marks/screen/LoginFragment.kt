@@ -44,24 +44,24 @@ class LoginFragment : Fragment() {
     ): View? {
         val binding = FragmentLoginBinding.inflate(inflater,container,false)
 
-//        var state = false
-//        var teachers:List<Teacher> = appDatabase.getUserDao().getAllTeachers()
-//        var students:List<Student> = appDatabase.getUserDao().getAllStudents()
+
+        var teachers:List<Teacher> = appDatabase.getUserDao().getAllTeachers()
+        var students:List<Student> = appDatabase.getUserDao().getAllStudents()
         binding.verify.setOnClickListener {
 
-//            for (i in students){
-//                if (binding.nameOrg.text.toString().equals(i.name_student) && binding.passwordOrg.text.toString().equals(i.password_student)){
-//                    state  = true
-//                    parentFragmentManager.beginTransaction().replace(R.id.main_activity,StudentFragment.newInstance(binding.nameOrg.text.toString())).commit()
-//                }
-//            }
+            for (i in students){
+                if (binding.nameOrg.text.toString().equals(i.name_student) && binding.passwordOrg.text.toString().equals(i.password_student)){
 
-//            for (i in teachers){
-//                if (binding.nameOrg.text.toString().equals(i.name_teacher) && binding.passwordOrg.text.toString().equals(i.password_teacher)){
-//                state  = true
-//                parentFragmentManager.beginTransaction().replace(R.id.main_activity,TeacherFragment.newInstance(binding.nameOrg.text.toString())).commit()
-//            }
-//        }
+                    parentFragmentManager.beginTransaction().replace(R.id.main_activity,StudentFragment.newInstance(binding.nameOrg.text.toString())).commit()
+                }
+            }
+
+            for (i in teachers){
+                if (binding.nameOrg.text.toString().equals(i.name_teacher) && binding.passwordOrg.text.toString().equals(i.password_teacher)){
+
+                parentFragmentManager.beginTransaction().replace(R.id.main_activity,TeacherFragment.newInstance(binding.nameOrg.text.toString())).commit()
+            }
+        }
 
 
         }

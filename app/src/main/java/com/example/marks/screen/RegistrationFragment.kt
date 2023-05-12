@@ -1,22 +1,18 @@
 package com.example.marks.screen
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.marks.R
 import com.example.marks.database.AppDatabase
 import com.example.marks.databinding.FragmentRegistrationBinding
 import com.example.marks.entity.Student
-import com.example.marks.model.Subject
+import com.example.marks.entity.Subject
 import com.example.marks.entity.Teacher
-import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,44 +47,36 @@ class RegistrationFragment : Fragment() {
     ): View? {
         val binding = FragmentRegistrationBinding.inflate(inflater, container, false)
 
-        var subjects = ArrayList<Subject>()
-        subjects.add(Subject.ALGEBRA)
-        subjects.add(Subject.GEOMETRIYA)
-        subjects.add(Subject.INFORMATIKA)
-        subjects.add(Subject.FIZIKA)
-        subjects.add(Subject.INGLIZTILI)
-        subjects.add(Subject.ONATILI)
-        subjects.add(Subject.ADABIYOT)
 
-        var subject:Subject = Subject.ALGEBRA
 
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,subjects)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.subjectSpinner.adapter = adapter
 
-        binding.subjectSpinner.onItemSelectedListener = (object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                subject = subjects[position]
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-
-        })
-        binding.subjectSpinner.visibility = View.GONE
-        binding.status.setOnClickListener{
-            if (!binding.status.isChecked){
-                binding.subjectSpinner.visibility = View.GONE
-            }
-            else  binding.subjectSpinner.visibility = View.VISIBLE
-
-        }
+//        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,subjects)
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//        binding.subjectSpinner.adapter = adapter
+//
+//        binding.subjectSpinner.onItemSelectedListener = (object : AdapterView.OnItemSelectedListener{
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+//                subject = subjects[position]
+//            }
+//
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
+//        binding.subjectSpinner.visibility = View.GONE
+//        binding.status.setOnClickListener{
+//            if (!binding.status.isChecked){
+//                binding.subjectSpinner.visibility = View.GONE
+//            }
+//            else  binding.subjectSpinner.visibility = View.VISIBLE
+//
+//        }
 
         binding.save.setOnClickListener {
             if (binding.nameOrg.text.isNullOrEmpty() || binding.passwordOrg.text.isNullOrEmpty()) {
@@ -105,8 +93,7 @@ class RegistrationFragment : Fragment() {
                     appDatabase.getUserDao().addTeacher(
                         Teacher(
                             password_teacher = binding.passwordOrg.text.toString(),
-                            name_teacher = binding.nameOrg.text.toString(),
-                            subject = subject
+                            name_teacher = binding.nameOrg.text.toString()
                         )
                     )
                 }

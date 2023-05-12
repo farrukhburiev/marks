@@ -5,8 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marks.R
+import com.example.marks.adapter.AdapterStudent
+import com.example.marks.database.AppDatabase
 import com.example.marks.databinding.FragmentTeacherBinding
+import com.example.marks.entity.Student
+import com.example.marks.entity.Teacher
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,12 +38,31 @@ class TeacherFragment : Fragment() {
         }
     }
 
+    val appDatabase: AppDatabase by lazy {
+        AppDatabase.getInstance(requireContext())
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentTeacherBinding.inflate(inflater,container,false)
         binding.nameTeacher.text = param1
+
+
+//        var teachers:List<Teacher> = appDatabase.getUserDao().getAllTeachers()
+        var students:List<Student> = appDatabase.getUserDao().getAllStudents()
+        val adapter = AdapterStudent(students,object :AdapterStudent.ItemClick{
+            override fun OnItemClick(position: Int) {
+                TODO("Not yet implemented")
+            }
+
+        })
+//
+        binding.studentList.adapter = adapter
+        var layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        binding.studentList.layoutManager = layoutManager
 
         return binding.root
     }
