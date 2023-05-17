@@ -3,15 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    android:padding="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="30dp"
         app:cardCornerRadius="20dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,7 +23,7 @@
             android:layout_height="110dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="24dp"
-            android:src="@drawable/user" />
+            android:src="@drawable/img" />
 
         <TextView
             android:id="@+id/student_name"

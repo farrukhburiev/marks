@@ -9,6 +9,7 @@ import com.example.marks.R
 import com.example.marks.database.AppDatabase
 import com.example.marks.databinding.FragmentLoginBinding
 import com.example.marks.entity.Student
+import com.example.marks.entity.Subject
 import com.example.marks.entity.Teacher
 
 // TODO: Rename parameter arguments, choose names that match

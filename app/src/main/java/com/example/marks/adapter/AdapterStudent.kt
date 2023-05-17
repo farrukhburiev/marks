@@ -8,7 +8,6 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marks.R
 import com.example.marks.entity.Student
-import com.example.marks.entity.Subject
 
 class AdapterStudent(val list: List<Student>, var listener: AdapterStudent.ItemClick): RecyclerView.Adapter<AdapterStudent.MyHolder>() {
 

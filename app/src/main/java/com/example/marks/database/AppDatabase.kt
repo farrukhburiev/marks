@@ -6,10 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.marks.dao.School
 import com.example.marks.entity.Student
+import com.example.marks.entity.Subject
 import com.example.marks.entity.Teacher
+import com.example.marks.entity.TeacherSubject
 
 
-@Database(entities = [Student::class,Teacher::class], version = 1)
+@Database(entities = [Student::class,Teacher::class,Subject::class,TeacherSubject::class], version = 1)
 abstract class AppDatabase:RoomDatabase() {
     abstract fun getUserDao():School
 

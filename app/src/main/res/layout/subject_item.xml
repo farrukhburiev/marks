@@ -3,15 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    android:padding="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="30dp"
         app:cardCornerRadius="20dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,14 +23,14 @@
             android:layout_height="110dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="24dp"
-            android:src="@drawable/user" />
+            android:src="@drawable/img_1" />
 
         <TextView
             android:id="@+id/subject_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/gilroyregular"
             android:text="Algebra"
@@ -39,16 +38,18 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/teacher_subject"
+            android:id="@+id/teacher_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginStart="300dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/gilroyregular"
-            android:text="mirjamil"
-            android:padding="10dp"
+            android:text="Algebra"
+            android:textColor="@color/black"
             android:textSize="20sp" />
+
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

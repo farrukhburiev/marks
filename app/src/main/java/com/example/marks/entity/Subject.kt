@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class Subject(
     @PrimaryKey(autoGenerate = true)
-    var id :Int = 0,
+    var id_subject :Int = 0,
     var subject_name :String,
+
 
     )

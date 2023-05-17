@@ -47,6 +47,7 @@ class RegistrationFragment : Fragment() {
     ): View? {
         val binding = FragmentRegistrationBinding.inflate(inflater, container, false)
 
+        var count = 1
 
 
 
@@ -79,6 +80,19 @@ class RegistrationFragment : Fragment() {
 //        }
 
         binding.save.setOnClickListener {
+//
+//        appDatabase.getUserDao().addSubject(Subject(subject_name = "algebra"))
+//        appDatabase.getUserDao().addSubject(Subject(subject_name = "geometriya"))
+//        appDatabase.getUserDao().addSubject(Subject(subject_name = "ona tili"))
+//        appDatabase.getUserDao().addSubject(Subject(subject_name = "adabiyot"))
+//        appDatabase.getUserDao().addSubject(Subject(subject_name = "english"))
+//        appDatabase.getUserDao().addSubject(Subject(subject_name = "fizika"))
+//        appDatabase.getUserDao().addSubject(Subject(subject_name = "informatika"))
+//
+
+
+
+
             if (binding.nameOrg.text.isNullOrEmpty() || binding.passwordOrg.text.isNullOrEmpty()) {
                 Toast.makeText(requireContext(), "fill the blanks", Toast.LENGTH_SHORT).show()
             } else {
@@ -94,20 +108,19 @@ class RegistrationFragment : Fragment() {
                         Teacher(
                             password_teacher = binding.passwordOrg.text.toString(),
                             name_teacher = binding.nameOrg.text.toString()
+//                            subject_id = count++
                         )
                     )
                 }
                 var teachers:List<Teacher> = appDatabase.getUserDao().getAllTeachers()
                 var students:List<Student> = appDatabase.getUserDao().getAllStudents()
 
-                Log.d("FGHJ", "onCreateView: "+students.joinToString())
                 if (teachers.size == 0 && students.size == 0){
                     Toast.makeText(requireContext(), "couldn't save your data", Toast.LENGTH_SHORT).show()
                     binding.nameOrg.setText("")
                     binding.passwordOrg.setText("")
                     binding.nameOrg.requestFocus()
-                }
-                else parentFragmentManager.beginTransaction().replace(R.id.main_activity,LoginFragment()).commit()
+                } else parentFragmentManager.beginTransaction().replace(R.id.main_activity,LoginFragment()).commit()
             }
         }
 

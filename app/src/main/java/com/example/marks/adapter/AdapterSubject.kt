@@ -8,13 +8,14 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marks.R
 import com.example.marks.entity.Subject
+import com.example.marks.entity.TeacherSubject
 
-class AdapterSubject(val list: Array<Subject>, var listener: AdapterSubject.ItemClick): RecyclerView.Adapter<AdapterSubject.MyHolder>() {
+class AdapterSubject(val list: List<Subject>, var listener: AdapterSubject.ItemClick): RecyclerView.Adapter<AdapterSubject.MyHolder>() {
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var cardView = itemView.findViewById<CardView>(R.id.cardView)
         //        var img = itemView.findViewById<ImageView>(R.id.subject_img)
-        var teacher = itemView.findViewById<TextView>(R.id.teacher_subject)
+        var teacher = itemView.findViewById<TextView>(R.id.teacher_name)
         var name = itemView.findViewById<TextView>(R.id.subject_name)
 
 
@@ -29,6 +30,8 @@ class AdapterSubject(val list: Array<Subject>, var listener: AdapterSubject.Item
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         var item = list.get(position)
         holder.name.text = item.subject_name
+
+
 
 
         holder.cardView.setOnClickListener {
